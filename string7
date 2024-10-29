@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100], sstr[100];
+    int start, end, j = 0;
+
+    // Prompt user for input string
+    printf("Enter the string: ");
+    scanf("%s", str);
+
+    // Prompt user for start and end indices
+    printf("Enter the start index to copy: ");
+    scanf("%d", &start);
+    printf("Enter the end index to copy: ");
+    scanf("%d", &end);
+
+    // Check if the indices are valid
+    if (start < 0 || end >= strlen(str) || start > end) {
+        printf("Invalid indices!\n");
+        return 1;
+    }
+
+    // Extract the substring
+    for (int i = start; i <= end; i++) {
+        sstr[j] = str[i];
+        j++;
+    }
+    sstr[j] = '\0'; // Null-terminate the substring
+
+    // Print the substring
+    printf("The substring is: %s\n", sstr);
+    return 0;
+}
